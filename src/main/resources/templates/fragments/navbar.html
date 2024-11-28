@@ -10,10 +10,8 @@
     const currentVersion = /*[[${@appVersion}]]*/ '';
     const noFavourites = /*[[#{noFavourites}]]*/ '';
     console.log(noFavourites);
-    const updateAvailable = /*[[#{settings.updateAvailable}]]*/ '';
   </script>
   <script th:src="@{'/js/homecard.js'}"></script>
-  <script th:src="@{'/js/githubVersion.js'}"></script>
   <nav class="navbar navbar-expand-xl">
     <div class="container ">
       <a class="navbar-brand" th:href="@{'/'}" style="display: flex;">
@@ -46,9 +44,6 @@
                       <!-- Page tools menu items -->
                       <div class="navbar-item col-lg-2 col-sm-6 py px-xl-1 px-2">
                         <h6 class="menu-title" th:text="#{navbar.sections.organize}"></h6>
-                        <div
-                          th:replace="~{fragments/navbarEntry :: navbarEntry ('multi-tool', 'construction', 'home.multiTool.title', 'home.multiTool.desc', 'multiTool.tags', 'organize')}">
-                        </div>
                         <div
                           th:replace="~{fragments/navbarEntry :: navbarEntry ('merge-pdfs', 'add_to_photos', 'home.merge.title', 'home.merge.desc', 'merge.tags', 'organize')}">
                         </div>
@@ -258,16 +253,6 @@
 
           </li>
 
-          <li class="nav-item" th:if="${@endpointConfiguration.isEndpointEnabled('multi-tool')}">
-            <a class="nav-link" href="#" th:href="@{'/multi-tool'}"
-              th:classappend="${currentPage}=='multi-tool' ? 'active' : ''" th:title="#{home.multiTool.desc}">
-              <span class="material-symbols-rounded">
-                construction
-              </span>
-              <span class="icon-text" th:data-text="#{navbar.multiTool}" th:text="#{navbar.multiTool}"></span>
-            </a>
-          </li>
-
           <li class="nav-item" th:if="${@endpointConfiguration.isEndpointEnabled('pipeline')}" >
             <a class="nav-link" href="#" th:href="@{'/pipeline'}"
               th:classappend="${currentPage}=='pipeline' ? 'active' : ''" th:title="#{home.pipeline.desc}">
@@ -407,13 +392,6 @@
           <p class="mb-0" th:utext="#{settings.appVersion} + ' ' + ${@appVersion}"></p>
           <div class="d-flex justify-content-between align-items-center mb-3 mt-3">
             <div class="footer-center" style="flex-direction: row;">
-              <a href="https://github.com/Stirling-Tools/Stirling-PDF" class="mx-1" role="button" target="_blank"
-                th:title="#{visitGithub}">
-                <img th:src="@{'/images/github.svg'}" alt="github">
-              </a>
-              <a href="https://hub.docker.com/r/stirlingtools/stirling-pdf" class="mx-1" role="button" target="_blank"th:title="#{seeDockerHub}">
-                <img th:src="@{'/images/docker.svg'}" alt="docker">
-              </a>
               <a href="https://discord.gg/Cn8pWhQRxZ" class="mx-1" role="button" target="_blank" th:title="#{joinDiscord}">
                 <img th:src="@{'/images/discord.svg'}" alt="discord">
               </a>
@@ -421,9 +399,6 @@
 
             <a th:href="@{'/swagger-ui/index.html'}" class="btn btn-sm btn-outline-primary mx-1" role="button"
               target="_blank">API</a>
-            <a href="https://github.com/Stirling-Tools/Stirling-PDF/releases"
-              class="btn btn-sm btn-outline-primary mx-1" id="update-btn" th:utext="#{settings.update}" role="button"
-              target="_blank"></a>
           </div>
 
           <div class="mb-3">

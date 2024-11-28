@@ -105,31 +105,31 @@ nix-env -iA nixpkgs.unpaper nixpkgs.libreoffice nixpkgs.qpdf nixpkgs.poppler_uti
 pip3 install uno opencv-python-headless unoconv pngquant WeasyPrint
 ```
 
-### Step 4: Clone and Build Stirling-PDF
+### Step 4: Clone and Build EditMyPDF
 
 ```bash
 cd ~/.git && \
-git clone https://github.com/Stirling-Tools/Stirling-PDF.git && \
-cd Stirling-PDF && \
+git clone https://github.com/EditMyPDF-Tools/EditMyPDF.git && \
+cd EditMyPDF && \
 chmod +x ./gradlew && \
 ./gradlew build
 ```
 
 ### Step 5: Move Jar to Desired Location
 
-After the build process, a `.jar` file will be generated in the `build/libs` directory. You can move this file to a desired location, for example, `/opt/Stirling-PDF/`. You must also move the Script folder within the Stirling-PDF repo that you have downloaded to this directory. This folder is required for the Python scripts using OpenCV.
+After the build process, a `.jar` file will be generated in the `build/libs` directory. You can move this file to a desired location, for example, `/opt/EditMyPDF/`. You must also move the Script folder within the EditMyPDF repo that you have downloaded to this directory. This folder is required for the Python scripts using OpenCV.
 
 ```bash
-sudo mkdir /opt/Stirling-PDF && \
-sudo mv ./build/libs/Stirling-PDF-*.jar /opt/Stirling-PDF/ && \
-sudo mv scripts /opt/Stirling-PDF/ && \
+sudo mkdir /opt/EditMyPDF && \
+sudo mv ./build/libs/EditMyPDF-*.jar /opt/EditMyPDF/ && \
+sudo mv scripts /opt/EditMyPDF/ && \
 echo "Scripts installed."
 ```
 
-For non-root users, you can just keep the jar in the main directory of Stirling-PDF using the following command:
+For non-root users, you can just keep the jar in the main directory of EditMyPDF using the following command:
 
 ```bash
-mv ./build/libs/Stirling-PDF-*.jar ./Stirling-PDF-*.jar
+mv ./build/libs/EditMyPDF-*.jar ./EditMyPDF-*.jar
 ```
 
 ### Step 6: Other Files
@@ -184,14 +184,14 @@ nix-env -iA nixpkgs.tesseract
 
 **Note:** Nix Package Manager pre-installs almost all the language packs when Tesseract is installed.
 
-### Step 7: Run Stirling-PDF
+### Step 7: Run EditMyPDF
 
 Those who have pushed to the root directory, run the following commands:
 
 ```bash
 ./gradlew bootRun
 or
-java -jar /opt/Stirling-PDF/Stirling-PDF-*.jar
+java -jar /opt/EditMyPDF/EditMyPDF-*.jar
 ```
 
 Since LibreOffice, soffice, and conversion tools have their dbus_tmp_dir set as `dbus_tmp_dir="/run/user/$(id -u)/libreoffice-dbus"`, you might get the following error when using their endpoints:
@@ -200,14 +200,14 @@ Since LibreOffice, soffice, and conversion tools have their dbus_tmp_dir set as 
 [Thread-7] INFO  s.s.SPDF.utils.ProcessExecutor - mkdir: cannot create directory ‘/run/user/1501’: Permission denied
 ```
 
-To resolve this, before starting Stirling-PDF, you have to set the environment variable to a directory you have write access to by using the following commands:
+To resolve this, before starting EditMyPDF, you have to set the environment variable to a directory you have write access to by using the following commands:
 
 ```bash
 mkdir temp
 export DBUS_SESSION_BUS_ADDRESS="unix:path=./temp"
 ./gradlew bootRun
 or
-java -jar ./Stirling-PDF-*.jar
+java -jar ./EditMyPDF-*.jar
 ```
 
 ### Step 8: Adding a Desktop Icon
@@ -218,10 +218,10 @@ This will add a modified app starter to your app menu.
 location=$(pwd)/gradlew
 image=$(pwd)/docs/stirling-transparent.svg
 
-cat > ~/.local/share/applications/Stirling-PDF.desktop <<EOF
+cat > ~/.local/share/applications/EditMyPDF.desktop <<EOF
 [Desktop Entry]
-Name=Stirling PDF;
-GenericName=Launch StirlingPDF and open its WebGUI;
+Name=Edit My PDF;
+GenericName=Launch EditMyPDF and open its WebGUI;
 Category=Office;
 Exec=xdg-open http://localhost:8080 && nohup $location bootRun &;
 Icon=$image;
@@ -236,7 +236,7 @@ Note: Currently the app will run in the background until manually closed.
 
 ### Optional: Changing the Host and Port of the Application
 
-To override the default configuration, you can add the following to `/.git/Stirling-PDF/configs/custom_settings.yml` file:
+To override the default configuration, you can add the following to `/.git/EditMyPDF/configs/custom_settings.yml` file:
 
 ```yaml
 server:
@@ -249,12 +249,12 @@ server:
 
 **Note:** This file is created after the first application launch. To have it before that, you can create the directory and add the file yourself.
 
-### Optional: Run Stirling-PDF as a Service (requires root)
+### Optional: Run EditMyPDF as a Service (requires root)
 
 First create a `.env` file, where you can store environment variables:
 
 ```bash
-touch /opt/Stirling-PDF/.env
+touch /opt/EditMyPDF/.env
 ```
 
 In this file, you can add all variables, one variable per line, as stated in the main readme (for example `SYSTEM_DEFAULTLOCALE="de-DE"`).
@@ -269,7 +269,7 @@ Paste this content, make sure to update the filename of the jar file. Press `Ctr
 
 ```ini
 [Unit]
-Description=Stirling-PDF service
+Description=EditMyPDF service
 After=syslog.target network.target
 
 [Service]
@@ -280,9 +280,9 @@ Group=root
 
 Type=simple
 
-EnvironmentFile=/opt/Stirling-PDF/.env
-WorkingDirectory=/opt/Stirling-PDF
-ExecStart=/usr/bin/java -jar Stirling-PDF-0.17.2.jar
+EnvironmentFile=/opt/EditMyPDF/.env
+WorkingDirectory=/opt/EditMyPDF
+ExecStart=/usr/bin/java -jar EditMyPDF-0.17.2.jar
 ExecStop=/bin/kill -15 $MAINPID
 
 [Install]
@@ -322,6 +322,6 @@ Remember to set the necessary environment variables before running the project i
 You can do this in the terminal by using the `export` command or `-D` argument to the Java `-jar` command:
 
 ```bash
-export APP_HOME_NAME="Stirling PDF"
+export APP_HOME_NAME="Edit My PDF"
 or
--DAPP_HOME_NAME="Stirling PDF"
+-DAPP_HOME_NAME="Edit My PDF"

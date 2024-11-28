@@ -9,7 +9,7 @@
 ### Configuring Processing with JSON Files
 
 - In each directory you want processed (e.g., `./pipeline/watchedFolders/officePrinter`), include a JSON configuration file.
-- This JSON file should specify how you want the files in the directory to be handled (e.g., what operations to perform on them). This can be made, configured, and downloaded from the Stirling-PDF Pipeline interface.
+- This JSON file should specify how you want the files in the directory to be handled (e.g., what operations to perform on them). This can be made, configured, and downloaded from the EditMyPDF Pipeline interface.
 
 ### Automatic Scanning and Processing
 

@@ -21,7 +21,7 @@ public class PdfMetadataService {
     @Autowired
     public PdfMetadataService(
             ApplicationProperties applicationProperties,
-            @Qualifier("StirlingPDFLabel") String stirlingPDFLabel,
+            @Qualifier("EditMyPDFLabel") String stirlingPDFLabel,
             @Autowired(required = false) UserServiceInterface userService) {
         this.applicationProperties = applicationProperties;
         this.stirlingPDFLabel = stirlingPDFLabel;

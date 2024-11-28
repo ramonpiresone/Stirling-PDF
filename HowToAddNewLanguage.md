@@ -1,17 +1,17 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Stirling-Tools/Stirling-PDF/main/docs/stirling.png" width="80">
+  <img src="https://raw.githubusercontent.com/EditMyPDF-Tools/EditMyPDF/main/docs/stirling.png" width="80">
   <br>
-  <h1 align="center">Stirling-PDF</h1>
+  <h1 align="center">EditMyPDF</h1>
 </p>
 
-# How to add new languages to Stirling-PDF
+# How to add new languages to EditMyPDF
 
-Fork Stirling-PDF and create a new branch out of `main`.
+Fork EditMyPDF and create a new branch out of `main`.
 
 Then add a reference to the language in the navbar by adding a new language entry to the dropdown:
 
-- Edit the file: [languages.html](https://github.com/Stirling-Tools/Stirling-PDF/blob/main/src/main/resources/templates/fragments/languages.html)
-- Add a flag SVG file to: [flags directory](https://github.com/Stirling-Tools/Stirling-PDF/tree/main/src/main/resources/static/images/flags)
+- Edit the file: [languages.html](https://github.com/EditMyPDF-Tools/EditMyPDF/blob/main/src/main/resources/templates/fragments/languages.html)
+- Add a flag SVG file to: [flags directory](https://github.com/EditMyPDF-Tools/EditMyPDF/tree/main/src/main/resources/static/images/flags)
 
 Any SVG flags are fine; most of the current ones were sourced from [here](https://flagicons.lipis.dev/). If your language isn't represented by a flag, choose a similar one, such as Saudi Arabia's flag for Arabic.
 
@@ -29,7 +29,7 @@ The `data-bs-language-code` is the code used to reference the file in the next s
 
 Start by copying the existing English property file:
 
-- [messages_en_GB.properties](https://github.com/Stirling-Tools/Stirling-PDF/blob/main/src/main/resources/messages_en_GB.properties)
+- [messages_en_GB.properties](https://github.com/EditMyPDF-Tools/EditMyPDF/blob/main/src/main/resources/messages_en_GB.properties)
 
 Copy and rename it to `messages_{your data-bs-language-code here}.properties`. In the Polish example, you would set the name to `messages_pl_PL.properties`.
 

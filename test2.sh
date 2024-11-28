@@ -53,7 +53,7 @@ build_and_test() {
     local security_suffix=""
     local docker_compose_base="./exampleYmlFiles/docker-compose-latest"
     local compose_suffix=".yml"
-    local service_name_base="Stirling-PDF"
+    local service_name_base="EditMyPDF"
 
     if [ "$enable_security" == "true" ]; then
         security_suffix="-Security"

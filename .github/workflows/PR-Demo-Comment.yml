@@ -131,8 +131,8 @@ jobs:
                 DOCKER_ENABLE_SECURITY: "false"
                 SECURITY_ENABLELOGIN: "false"
                 SYSTEM_DEFAULTLOCALE: en-GB
-                UI_APPNAME: "Stirling-PDF PR#${{ needs.check-comment.outputs.pr_number }}"
-                UI_HOMEDESCRIPTION: "PR#${{ needs.check-comment.outputs.pr_number }} for Stirling-PDF Latest"
+                UI_APPNAME: "EditMyPDF PR#${{ needs.check-comment.outputs.pr_number }}"
+                UI_HOMEDESCRIPTION: "PR#${{ needs.check-comment.outputs.pr_number }} for EditMyPDF Latest"
                 UI_APPNAMENAVBAR: "PR#${{ needs.check-comment.outputs.pr_number }}"
                 SYSTEM_MAXFILESIZE: "100"
                 METRICS_ENABLED: "true"

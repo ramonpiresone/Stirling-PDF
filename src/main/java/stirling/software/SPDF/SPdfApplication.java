@@ -142,7 +142,7 @@ public class SPdfApplication {
     }
 
     private static void printStartupLogs() {
-        logger.info("Stirling-PDF Started.");
+        logger.info("EditMyPDF Started.");
         String url = baseUrlStatic + ":" + getStaticPort();
         logger.info("Navigate to {}", url);
     }

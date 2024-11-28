@@ -228,7 +228,7 @@ public class ApplicationProperties {
                             return getKeycloak();
                         default:
                             throw new UnsupportedProviderException(
-                                    "Logout from the provider is not supported? Report it at https://github.com/Stirling-Tools/Stirling-PDF/issues");
+                                    "Logout from the provider is not supported? Report it at https://github.com/EditMyPDF-Tools/EditMyPDF/issues");
                     }
                 }
             }
@@ -302,11 +302,11 @@ public class ApplicationProperties {
             private String producer;
 
             public String getCreator() {
-                return creator == null || creator.trim().isEmpty() ? "Stirling-PDF" : creator;
+                return creator == null || creator.trim().isEmpty() ? "EditMyPDF" : creator;
             }
 
             public String getProducer() {
-                return producer == null || producer.trim().isEmpty() ? "Stirling-PDF" : producer;
+                return producer == null || producer.trim().isEmpty() ? "EditMyPDF" : producer;
             }
         }
     }

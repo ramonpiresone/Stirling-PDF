@@ -16,8 +16,8 @@
     <link rel="manifest" th:href="@{'/site.webmanifest'}" crossorigin="use-credentials">
     <link rel="mask-icon" th:href="@{'/safari-pinned-tab.svg'}" color="#ca2b2a">
     <link rel="shortcut icon" th:href="@{'/favicon.ico'}">
-    <meta name="apple-mobile-web-app-title" content="Stirling PDF">
-    <meta name="application-name" content="Stirling PDF">
+    <meta name="apple-mobile-web-app-title" content="Edit My PDF">
+    <meta name="application-name" content="Edit My PDF">
     <meta name="msapplication-TileColor" content="#00aba9">
     <meta name="theme-color" content="#ffffff">
 
@@ -74,7 +74,7 @@
     <script th:src="@{'/js/tab-container.js'}"></script>
     <script th:src="@{'/js/darkmode.js'}"></script>
     <script th:inline="javascript">
-        const stirlingPDFLabel = /*[[${@StirlingPDFLabel}]]*/ '';
+        const stirlingPDFLabel = /*[[${@EditMyPDFLabel}]]*/ '';
         const analyticsEnabled = /*[[${@analyticsEnabled}]]*/ false;
 
         if (analyticsEnabled) {

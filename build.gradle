@@ -75,7 +75,7 @@ openApi {
 launch4j {
     icon = "${projectDir}/src/main/resources/static/favicon.ico"
 
-    outfile="Stirling-PDF.exe"
+    outfile="EditMyPDF.exe"
     headerType="console"
     jarTask = tasks.bootJar
 
@@ -84,14 +84,14 @@ launch4j {
     variables=["BROWSER_OPEN=true"]
     jreMinVersion="17"
 
-    mutexName="Stirling-PDF"
-    windowTitle="Stirling-PDF"
+    mutexName="EditMyPDF"
+    windowTitle="EditMyPDF"
 
-    messagesStartupError="An error occurred while starting Stirling-PDF"
+    messagesStartupError="An error occurred while starting EditMyPDF"
     // messagesJreNotFoundError="This application requires a Java Runtime Environment, Please download Java 17."
     messagesJreVersionError="You are running the wrong version of Java, Please download Java 21."
     messagesLauncherError="Java is corrupted. Please uninstall and then install  Java 21."
-    messagesInstanceAlreadyExists="Stirling-PDF is already running."
+    messagesInstanceAlreadyExists="EditMyPDF is already running."
 }
 
 spotless {
@@ -248,7 +248,7 @@ task writeVersion {
 
 swaggerhubUpload {
     //dependsOn generateOpenApiDocs  // Depends on your task generating Swagger docs
-    api "Stirling-PDF"  // The name of your API on SwaggerHub
+    api "EditMyPDF"  // The name of your API on SwaggerHub
     owner "Frooodle"  // Your SwaggerHub username (or organization name)
     version project.version  // The version of your API
     inputFile "./SwaggerDoc.json"  // The path to your Swagger docs
@@ -259,7 +259,7 @@ swaggerhubUpload {
 jar {
     enabled = false
     manifest {
-        attributes "Implementation-Title": "Stirling-PDF",
+        attributes "Implementation-Title": "EditMyPDF",
                    "Implementation-Version": project.version
     }
 

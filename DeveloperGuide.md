@@ -1,12 +1,12 @@
-# Stirling-PDF Developer Guide
+# EditMyPDF Developer Guide
 
 ## 1. Introduction
 
-Stirling-PDF is a robust, locally hosted web-based PDF manipulation tool. This guide focuses on Docker-based development and testing, which is the recommended approach for working with the full version of Stirling-PDF.
+EditMyPDF is a robust, locally hosted web-based PDF manipulation tool. This guide focuses on Docker-based development and testing, which is the recommended approach for working with the full version of EditMyPDF.
 
 ## 2. Project Overview
 
-Stirling-PDF is built using:
+EditMyPDF is built using:
 
 - Spring Boot + Thymeleaf
 - PDFBox
@@ -32,8 +32,8 @@ Stirling-PDF is built using:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/Stirling-Tools/Stirling-PDF.git
-   cd Stirling-PDF
+   git clone https://github.com/EditMyPDF-Tools/EditMyPDF.git
+   cd EditMyPDF
    ```
 
 2. Install Docker and JDK17 if not already installed.
@@ -41,16 +41,16 @@ Stirling-PDF is built using:
 3. Install a recommended Java IDE such as Eclipse, IntelliJ or VSCode
 
 4. Lombok Setup
-Stirling-PDF uses Lombok to reduce boilerplate code. Some IDEs, like Eclipse, don't support Lombok out of the box. To set up Lombok in your development environment:
+EditMyPDF uses Lombok to reduce boilerplate code. Some IDEs, like Eclipse, don't support Lombok out of the box. To set up Lombok in your development environment:
 Visit the [Lombok website](https://projectlombok.org/setup/) for installation instructions specific to your IDE.
 
 5. Add environment variable
-For local testing you should generally be testing the full 'Security' version of Stirling-PDF to do this you must add the environment flag DOCKER_ENABLE_SECURITY=true to your system and/or IDE build/run step
+For local testing you should generally be testing the full 'Security' version of EditMyPDF to do this you must add the environment flag DOCKER_ENABLE_SECURITY=true to your system and/or IDE build/run step
 
 ## 4. Project Structure
 
 ```bash
-Stirling-PDF/
+EditMyPDF/
 ├── .github/               # GitHub-specific files (workflows, issue templates)
 ├── configs/               # Configuration files used by stirling at runtime (generated at runtime)
 ├── cucumber/              # Cucumber test files
@@ -94,7 +94,7 @@ Stirling-PDF/
 
 ## 5. Docker-based Development
 
-Stirling-PDF offers several Docker versions:
+EditMyPDF offers several Docker versions:
 
 - Full: All features included
 - Ultra-Lite: Basic PDF operations only
@@ -102,7 +102,7 @@ Stirling-PDF offers several Docker versions:
 
 ### Example Docker Compose Files
 
-Stirling-PDF provides several example Docker Compose files in the `exampleYmlFiles` directory such as :
+EditMyPDF provides several example Docker Compose files in the `exampleYmlFiles` directory such as :
 
 - `docker-compose-latest.yml`: Latest version without security features
 - `docker-compose-latest-security.yml`: Latest version with security features enabled
@@ -113,7 +113,7 @@ These files provide pre-configured setups for different scenarios. For example, 
 ```yaml
 services:
   stirling-pdf:
-    container_name: Stirling-PDF-Security
+    container_name: EditMyPDF-Security
     image: stirlingtools/stirling-pdf:latest
     deploy:
       resources:
@@ -137,9 +137,9 @@ services:
       PGID: 1002
       UMASK: "022"
       SYSTEM_DEFAULTLOCALE: en-US
-      UI_APPNAME: Stirling-PDF
-      UI_HOMEDESCRIPTION: Demo site for Stirling-PDF Latest with Security
-      UI_APPNAMENAVBAR: Stirling-PDF Latest
+      UI_APPNAME: EditMyPDF
+      UI_HOMEDESCRIPTION: Demo site for EditMyPDF Latest with Security
+      UI_APPNAMENAVBAR: EditMyPDF Latest
       SYSTEM_MAXFILESIZE: "100"
       METRICS_ENABLED: "true"
       SYSTEM_GOOGLEVISIBILITY: "true"
@@ -154,7 +154,7 @@ docker-compose -f exampleYmlFiles/docker-compose-latest-security.yml up
 
 ### Building Docker Images
 
-Stirling-PDF uses different Docker images for various configurations. The build process is controlled by environment variables and uses specific Dockerfile variants. Here's how to build the Docker images:
+EditMyPDF uses different Docker images for various configurations. The build process is controlled by environment variables and uses specific Dockerfile variants. Here's how to build the Docker images:
 
 1. Set the security environment variable:
 
@@ -195,7 +195,7 @@ Note: The `--no-cache` and `--pull` flags ensure that the build process uses the
 
 ### Comprehensive Testing Script
 
-Stirling-PDF provides a `test.sh` script in the root directory. This script builds all versions of Stirling-PDF, checks that each version works, and runs Cucumber tests. It's recommended to run this script before submitting a final pull request.
+EditMyPDF provides a `test.sh` script in the root directory. This script builds all versions of EditMyPDF, checks that each version works, and runs Cucumber tests. It's recommended to run this script before submitting a final pull request.
 
 To run the test script:
 
@@ -219,7 +219,7 @@ Note: The `test.sh` script will run automatically when you raise a PR. However, 
 
 ### Local Testing (Java and UI Components)
 
-For quick iterations and development of Java backend, JavaScript, and UI components, you can run and test Stirling-PDF locally without Docker. This approach allows you to work on and verify changes to:
+For quick iterations and development of Java backend, JavaScript, and UI components, you can run and test EditMyPDF locally without Docker. This approach allows you to work on and verify changes to:
 
 - Java backend logic
 - RESTful API endpoints
@@ -227,7 +227,7 @@ For quick iterations and development of Java backend, JavaScript, and UI compone
 - User interface components and styling
 - Thymeleaf templates
 
-To run Stirling-PDF locally:
+To run EditMyPDF locally:
 
 1. Compile and run the project using built in IDE methods or by running:
 
@@ -261,7 +261,7 @@ Important notes:
 
 6. Push your changes to your fork.
 7. Submit a pull request to the main repository.
-8. See additional [contributing guidelines](https://github.com/Stirling-Tools/Stirling-PDF/blob/main/CONTRIBUTING.md)
+8. See additional [contributing guidelines](https://github.com/EditMyPDF-Tools/EditMyPDF/blob/main/CONTRIBUTING.md)
 
 When you raise a PR:
 
@@ -274,11 +274,11 @@ Address any issues that arise from these checks before finalizing your pull requ
 
 ## 8. API Documentation
 
-API documentation is available at `/swagger-ui/index.html` when running the application. You can also view the latest API documentation [here](https://app.swaggerhub.com/apis-docs/Stirling-Tools/Stirling-PDF/).
+API documentation is available at `/swagger-ui/index.html` when running the application. You can also view the latest API documentation [here](https://app.swaggerhub.com/apis-docs/EditMyPDF-Tools/EditMyPDF/).
 
 ## 9. Customization
 
-Stirling-PDF can be customized through environment variables or a `settings.yml` file. Key customization options include:
+EditMyPDF can be customized through environment variables or a `settings.yml` file. Key customization options include:
 
 - Application name and branding
 - Security settings
@@ -297,7 +297,7 @@ Refer to the main README for a full list of customization options.
 
 ## 10. Language Translations
 
-For managing language translations that affect multiple files, Stirling-PDF provides a helper script:
+For managing language translations that affect multiple files, EditMyPDF provides a helper script:
 
 ```bash
 /scripts/replace_translation_line.sh
@@ -317,11 +317,11 @@ Remember to test your changes thoroughly to ensure they don't break any existing
 
 ### Overview of Thymeleaf
 
-Thymeleaf is a  server-side Java HTML template engine. It is used in Stirling-PDF to render dynamic web pages. Thymeleaf integrates heavily with Spring Boot
+Thymeleaf is a  server-side Java HTML template engine. It is used in EditMyPDF to render dynamic web pages. Thymeleaf integrates heavily with Spring Boot
 
 ### Thymeleaf overview
 
-In Stirling-PDF, Thymeleaf is used to create HTML templates that are rendered on the server side. These templates are located in the `src/main/resources/templates` directory. Thymeleaf templates use a combination of HTML and special Thymeleaf attributes to dynamically generate content.
+In EditMyPDF, Thymeleaf is used to create HTML templates that are rendered on the server side. These templates are located in the `src/main/resources/templates` directory. Thymeleaf templates use a combination of HTML and special Thymeleaf attributes to dynamically generate content.
 
 Some examples of this are:
 
@@ -532,9 +532,9 @@ This would generate n entries of tr for each person in exampleData
    </li>
    ```
 
-## Adding New Translations to Existing Language Files in Stirling-PDF
+## Adding New Translations to Existing Language Files in EditMyPDF
 
-When adding a new feature or modifying existing ones in Stirling-PDF, you'll need to add new translation entries to the existing language files. Here's a step-by-step guide:
+When adding a new feature or modifying existing ones in EditMyPDF, you'll need to add new translation entries to the existing language files. Here's a step-by-step guide:
 
 ### 1. Locate Existing Language Files
 

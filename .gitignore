@@ -16,7 +16,7 @@ local.properties
 version.properties
 pipeline/watchedFolders/
 pipeline/finishedFolders/
-#### Stirling-PDF Files ###
+#### EditMyPDF Files ###
 customFiles/
 configs/
 watchedFolders/

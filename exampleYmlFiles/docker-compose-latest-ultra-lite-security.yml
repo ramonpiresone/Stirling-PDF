@@ -1,6 +1,6 @@
 services:
   stirling-pdf:
-    container_name: Stirling-PDF-Ultra-Lite-Security
+    container_name: EditMyPDF-Ultra-Lite-Security
     image: stirlingtools/stirling-pdf:latest-ultra-lite
     deploy:
       resources:
@@ -21,9 +21,9 @@ services:
       DOCKER_ENABLE_SECURITY: "true"
       SECURITY_ENABLELOGIN: "true"
       SYSTEM_DEFAULTLOCALE: en-US
-      UI_APPNAME: Stirling-PDF-Lite
-      UI_HOMEDESCRIPTION: Demo site for Stirling-PDF-Lite Latest with Security
-      UI_APPNAMENAVBAR: Stirling-PDF-Lite Latest
+      UI_APPNAME: EditMyPDF-Lite
+      UI_HOMEDESCRIPTION: Demo site for EditMyPDF-Lite Latest with Security
+      UI_APPNAMENAVBAR: EditMyPDF-Lite Latest
       SYSTEM_MAXFILESIZE: "100"
       METRICS_ENABLED: "true"
       SYSTEM_GOOGLEVISIBILITY: "true"

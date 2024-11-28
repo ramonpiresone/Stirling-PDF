@@ -66,8 +66,8 @@ enterpriseEdition:
   CustomMetadata:
     autoUpdateMetadata: false # set to 'true' to automatically update metadata with below values
     author: username # supports text such as 'John Doe' or types such as username to autopopulate with user's username
-    creator: Stirling-PDF # supports text such as 'Company-PDF'
-    producer: Stirling-PDF # supports text such as 'Company-PDF'
+    creator: EditMyPDF # supports text such as 'Company-PDF'
+    producer: EditMyPDF # supports text such as 'Company-PDF'
 
 legal:
   termsAndConditions: https://www.stirlingpdf.com/terms-and-conditions # URL to the terms and conditions of your application (e.g. https://example.com/terms). Empty string to disable or filename to load from local file in static folder

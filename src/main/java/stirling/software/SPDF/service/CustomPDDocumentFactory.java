@@ -90,7 +90,7 @@ public class CustomPDDocumentFactory {
         return baos.toByteArray();
     }
 
-    // if loading from a file, assume the file has been made with Stirling-PDF
+    // if loading from a file, assume the file has been made with EditMyPDF
     public PDDocument load(File file) throws IOException {
         PDDocument document = Loader.loadPDF(file);
         pdfMetadataService.setMetadataToPdf(document, PdfMetadata.builder().build(), true);
